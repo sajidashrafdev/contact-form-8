@@ -41,19 +41,23 @@ function form_setting() {
 
     if (!empty($submissions)) {
         // Start HTML table
-        echo '<table style="border-collapse: collapse; width: 100%; border: 1px solid #ccc;">';
+        echo '<table style="border-collapse: collapse; width: 90%; border: 1px solid #ccc;">';
         echo '<tr style="background: #0073aa; color: white;">
-                <th style="padding: 4px;">Name</th>
-                <th style="padding: 4px;">Email</th>
-                <th style="padding: 4px;">Phone</th>
-                <th style="padding: 4px;">Address</th>
-                <th style="padding: 4px;">Message</th>
-                <th style="padding: 4px;">Date</th>
+                <th style="padding: 6px; text-align: left; border-right: 1px solid #ccc;">Sr</th>
+                <th style="padding: 6px; text-align: left; border-right: 1px solid #ccc;">Name</th>
+                <th style="padding: 6px; text-align: left; border-right: 1px solid #ccc;">Email</th>
+                <th style="padding: 6px; text-align: left; border-right: 1px solid #ccc;">Phone</th>
+                <th style="padding: 6px; text-align: left; border-right: 1px solid #ccc;">Address</th>
+                <th style="padding: 6px; text-align: left; border-right: 1px solid #ccc;">Message</th>
+                <th style="padding: 6px; text-align: left; border-right: 1px solid #ccc;">Date</th>
               </tr>';
 
         // Loop through each submission and output in table rows
+        $count = 0;
         foreach ($submissions as $s) {
+            $count++;
             echo '<tr>';
+            echo '<td style="padding: 4px; border: 1px solid #ccc;">' . $count . '</td>';
             echo '<td style="padding: 4px; border: 1px solid #ccc;">' . esc_html($s['first_name']) . '</td>';
             echo '<td style="padding: 4px; border: 1px solid #ccc;">' . esc_html($s['email']) . '</td>';
             echo '<td style="padding: 4px; border: 1px solid #ccc;">' . esc_html($s['phone']) . '</td>';

@@ -12,7 +12,6 @@
     font-weight: bold;
     color: #333;
     display: block;
-    margin-bottom: 5px;
 }
 
 .sajid-contact-form input[type="text"],
@@ -47,4 +46,8 @@
 
 .sajid-contact-form input[type="submit"]:hover {
     background: #005d8f;
+}
+
+label {
+    margin-bottom: -25px;
 }

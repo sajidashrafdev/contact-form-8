@@ -175,15 +175,21 @@ remove_filter('the_content', 'wpautop');
 
 
 // adding submenu 
+
+function submenu_callback(){
+    // This function will display the form
+    echo do_shortcode('[cf8_form]');
+}
+
 function cf8_options_page()
 {
 	add_submenu_page(
 		'contact_form_8',
-		'View Form Submissions',
-		'View Form Submissions',
+		'Add New Form',
+		'Add New Form',
 		'manage_options',
-		'wporg',
-		''
+		'add_new_form',
+		'submenu_callback'
 	);
 }
 add_action('admin_menu', 'cf8_options_page');

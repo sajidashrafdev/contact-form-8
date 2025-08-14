@@ -173,4 +173,19 @@ add_shortcode('cf8_form', function() {
 });
 remove_filter('the_content', 'wpautop');
 
+
+// adding submenu 
+function cf8_options_page()
+{
+	add_submenu_page(
+		'contact_form_8',
+		'View Form Submissions',
+		'View Form Submissions',
+		'manage_options',
+		'wporg',
+		''
+	);
+}
+add_action('admin_menu', 'cf8_options_page');
+
 ?>

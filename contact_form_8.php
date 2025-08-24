@@ -101,29 +101,43 @@ function contact_form()
 // creating shortcode for contact form [contact_form_8]
 add_shortcode('contact_form_8', 'contact_form');
 
-if (isset($_POST['submit'])) {
 
-    // fetch form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
+// Action hook to handle form submission
+add_action('init', 'handle_contact_form_submission');
+function handle_contact_form_submission()
+{
+    if (isset($_POST['submit'])) {
 
-    // Fetch existing form data
-    $form_data = get_option('contact_form_8_data');
-    // Check if form data is not an array
-    if (!is_array($form_data)) {
-        // If not, initialize it as an empty array
-        $form_data = [];
+        // fetch form data
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        // Fetch existing form data
+        $form_data = get_option('contact_form_8_data');
+        // Check if form data is not an array
+        if (!is_array($form_data)) {
+            // If not, initialize it as an empty array
+            $form_data = [];
+        }
+        // storing form data into array
+        $form_data[] = array(
+            'name'    => $name,
+            'email'   => $email,
+            'message' => $message
+        );
+
+        // Storing form data in the database
+        update_option('contact_form_8_data', $form_data);
+
+        // Send email notification
+        $to = get_option('admin_email');               // Admin email address
+        $subject = 'New Contact Form Submission';       // Email subject
+        $body = "Name: $name\nEmail: $email\nMessage: $message"; // Email body
+
+        // we use wp_mail() function to send email
+        wp_mail($to, $subject, $body);
     }
-    // storing form data into array
-    $form_data[] = array(
-        'name'    => $name,
-        'email'   => $email,
-        'message' => $message
-    );
-
-    // Storing form data in the database
-    update_option('contact_form_8_data', $form_data);
 }
 
 ?>

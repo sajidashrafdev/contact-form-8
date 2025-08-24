@@ -16,4 +16,4 @@ A simple WordPress plugin that provides a basic contact form using a shortcode. 
 ## 🛠 Installation
 1. Download or clone this repository into your `wp-content/plugins/` directory:
    ```bash
-   git clone https://github.com/your-username/contact-form-8.git
+   git clone https://github.com/sajidashrafdev/contact-form-8.git

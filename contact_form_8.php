@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Contact Form 8
-Description: A simple contact form plugin for WordPress.
+Description: A simple contact form plugin with admin dashboard to view submitted forms. 
 Version: 1.0.0
 Author: Sajid Ashraf
 */
@@ -39,7 +39,7 @@ function contact_form_8_page()
 ?>
     <div class="wrap">
         <h1>Contact Form 8</h1>
-        <h4>Welcome to the Contact Form 8 plugin!</h4>
+        <p>Use the shortcode <code>[contact_form_8]</code> to display the contact form on any page or post.</p>
         <h2>View submitted forms below:</h2>
         <table border="1" cellpadding="10" cellspacing="0">
             <thead>
@@ -76,9 +76,12 @@ function contact_form_8_page()
 function add_new_form_page()
 {
     // Page content for adding a new form
-    echo '<div class="wrap">';
-    echo '<h1>Add New Form</h1>';
-    echo '</div>';
+?>
+    <div class="wrap">
+        <h1>Add New Form</h1>
+        <p>Currently, this plugin supports only one form. You can use the shortcode <code>[contact_form_8]</code> to display the contact form on any page or post.</p>
+    </div>
+<?php
 }
 
 
